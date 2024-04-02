@@ -1,0 +1,7 @@
+.git/
+.idea/
+yarn.lock
+node_modules/
+node_modules-old/
+/nbproject/private/
+.DS_Store
