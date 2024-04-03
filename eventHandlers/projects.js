@@ -13,14 +13,18 @@ var self = (module.exports = {
         setInterval(() => {
             if (queue.length > 0) {
                 const event = queue.shift();
-                
-                fetch(event.url, {
-                    method: event.request_type,
-                    body: JSON.stringify(project),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                })
+
+                try {
+                    fetch(event.url, {
+                        method: event.request_type,
+                        body: JSON.stringify(project),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                } catch (e) {
+                    console.log(e.message);
+                }
             }
         }, 1000);
     }
